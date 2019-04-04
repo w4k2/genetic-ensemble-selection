@@ -71,6 +71,10 @@ class GES(BaseEstimator, ClassifierMixin):
         if hasattr(self.base_clf, "sigma_"):
             self.sigma_ = np.copy(self.base_clf.sigma_)
 
+        # Prepare storage for processing
+        self.all_scores = []
+        self.all_qualities = []
+
         # Prepare random feature selection model
         self.model_ = (
             np.random.randint(
@@ -101,6 +105,10 @@ class GES(BaseEstimator, ClassifierMixin):
             b = self.reg_b()
             q = scores - (self.alpha * a) + (self.beta * b)
 
+            # Update history
+            self.all_scores.append(scores)
+            self.all_qualities.append(q)
+
             # Sort model by obtained measure
             sorter = (-q).argsort()
             self.model_ = self.model_[sorter]
@@ -121,6 +129,10 @@ class GES(BaseEstimator, ClassifierMixin):
             )
             self.model_[self.elite_limit :] = self.model_[c]
             q[self.elite_limit :] = q[c]
+
+        # Convert scores
+        self.all_scores = np.array(self.all_scores)
+        self.all_qualities = np.array(self.all_qualities)
 
     def reg_a(self):
         return np.sum(np.max(self.model_, axis=1), axis=1) / self.n_features
