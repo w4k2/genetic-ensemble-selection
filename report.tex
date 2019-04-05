@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, total={8in, 10.5in}]{geometry}
+\usepackage{booktabs}
+
+\begin{document}
+
+
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l|ccccc||cccccc}
+	\toprule
+  & \multicolumn{5}{c||}{Logistic Regression} & \multicolumn{5}{c}{Gaussian Naive Bayes}\\
+  dataset& \textsc{lr} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b} & \textsc{gnb} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b}\\
+  & 1 & 2 & 3 & 4 & 5 & \textsc{a} & \textsc{b} & c & d & e\\
+  \midrule
+  \input{output/f}
+  \bottomrule
+\end{tabular}
+\caption{F-score}
+\end{table}
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l|ccccc||cccccc}
+	\toprule
+  & \multicolumn{5}{c||}{Logistic Regression} & \multicolumn{5}{c}{Gaussian Naive Bayes}\\
+  dataset& \textsc{lr} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b} & \textsc{gnb} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b}\\
+  & 1 & 2 & 3 & 4 & 5 & \textsc{a} & \textsc{b} & c & d & e\\
+  \midrule
+  \input{output/g}
+  \bottomrule
+\end{tabular}
+\caption{G-mean}
+\end{table}
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l|ccccc||cccccc}
+	\toprule
+  & \multicolumn{5}{c||}{Logistic Regression} & \multicolumn{5}{c}{Gaussian Naive Bayes}\\
+  dataset& \textsc{lr} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b} & \textsc{gnb} & \textsc{rs} & \textsc{ges} & \textsc{ges-a} & \textsc{ges-b}\\
+  & 1 & 2 & 3 & 4 & 5 & \textsc{a} & \textsc{b} & c & d & e\\
+  \midrule
+  \input{output/b}
+  \bottomrule
+\end{tabular}
+\caption{Balanced accuracy score}
+\end{table}
+
+\end{document}
